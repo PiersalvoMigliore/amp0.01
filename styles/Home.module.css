@@ -114,3 +114,10 @@
     flex-direction: column;
   }
 }
+
+@font-face {
+  font-family: LexendDeca;
+  src: url("../src/fonts/LexendDeca-Regular.ttf");
+  format: ("ttf");
+  font-display: swap;
+}
