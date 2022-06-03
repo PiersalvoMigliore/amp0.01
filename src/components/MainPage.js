@@ -1,17 +1,38 @@
 import React from "react";
 import { Grid, Box, styled, Typography, Button } from "@mui/material";
+import Image from "next/image";
+import Elements03 from "../images/Elements03.svg";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import TextButton from "./TextButton";
 
-const HeaderButton = styled(Button)(({ theme }) => ({
-  textAlign: "center",
-  textTransform: "none",
-  color: "black",
-  fontSize: 20,
-  fontWeight: 500,
-  "&:hover": {
-    backgroundColor: "transparent",
-    color: "#3076FF",
+const RBox = styled(Box)(({ theme }) => ({
+  [theme.breakpoints.down("md")]: {
+    display: "flex",
+    alignItems: "center",
+    flexDirection: "column",
+    justifyContent: "center",
+    padding: 20,
+    height: "400px",
+    marginLeft: 0,
   },
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+  height: "500px",
+  marginLeft: 80,
+}));
+
+const RGrid = styled(Grid)(({ theme }) => ({
+  flexDirection: "row",
+  [theme.breakpoints.down("md")]: {
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  width: "100%",
+  display: "flex",
+  justifyContent: "space-evenly",
 }));
 
 const ButtonAM = styled(Button)(({ theme }) => ({
@@ -19,13 +40,19 @@ const ButtonAM = styled(Button)(({ theme }) => ({
   border: "1px solid",
   borderColor: "#CACACA",
   backgroundColor: "transparent",
-  width: "25%",
+  color: "black",
+  textTransform: "none",
+  width: "350px",
   height: "200px",
   boxShadow: "none",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "flex-start",
   "&:hover": {
     borderColor: "transparent",
     backgroundColor: "white",
     boxShadow: 4,
+    color: "#3076FF",
   },
 }));
 
@@ -35,50 +62,77 @@ const ButtonPM = styled(Button)(({ theme }) => ({
   width: "65%",
   height: "200px",
   boxShadow: "none",
+  textTransform: "none",
+  fontSize: 25,
+  color: "black",
+  display: "flex",
+  flexDirection: "column",
   "&:hover": {
     borderColor: "transparent",
     backgroundColor: "white",
     boxShadow: 4,
+    color: "#3076FF",
   },
 }));
+
+const imageStyle = {
+  height: "80%",
+  width: "100%",
+  flexDirection: "row",
+  alignItems: "center",
+  display: "flex",
+  justifyContent: "space-between",
+};
+
+const MyImage = ({ src }) => {
+  return (
+    <Image src={src} alt="Picture of the author" width="90%" height="90%" />
+  );
+};
 
 function MainPage() {
   return (
     <Box>
-      <Box sx={{ padding: 20 }}>
-        <Typography variant="h1" sx={{ padding: 1 }}>
+      <RBox>
+        <Typography variant="h1" sx={{ paddingBottom: 1 }}>
           Upgrade Now
         </Typography>
-        <Typography variant="h2" sx={{ padding: 1 }}>
+        <Typography variant="h2" sx={{ paddingTop: 1 }}>
           Take the next step and bring your business into the world of mobile
           application
         </Typography>
-        <HeaderButton
-          sx={{ display: "flex", alignItems: "center", padding: 1 }}
-          disableRipple
-          variant="text"
-        >
-          <Typography sx={{ fontSize: 17 }}>
-            Get started now with a quote
-          </Typography>
-          <ArrowForwardIosIcon sx={{ fontSize: 16 }} />
-        </HeaderButton>
-      </Box>
+        <TextButton style={{ fontSize: 19 }}>
+          Get started now with a quote
+          <ArrowForwardIosIcon sx={{ fontSize: 18 }} />
+        </TextButton>
+      </RBox>
+      <RGrid container spacing={1}>
+        <Grid item xs={12} md={3}>
+          <ButtonAM variant="contained">
+            <Typography variant="h5">Templates</Typography>
+            <Box sx={imageStyle}>
+              <MyImage src={Elements03} />
+              <ArrowForwardIosIcon />
+            </Box>
+          </ButtonAM>
+        </Grid>
+        <Grid item sx={{ display: "flex" }}>
+          <MyImage src={Elements03} />
+        </Grid>
+        <Grid item xs={12} md={3}>
+          <ButtonAM variant="contained">
+            <Typography variant="h5">Pricing</Typography>
+            <Box sx={imageStyle}>
+              <MyImage src={Elements03} />
+              <ArrowForwardIosIcon />
+            </Box>
+          </ButtonAM>
+        </Grid>
+      </RGrid>
       <Box
         sx={{
-          paddingBottom: 2,
-          width: "100%",
-          display: "flex",
-          justifyContent: "space-evenly",
-        }}
-      >
-        <ButtonAM variant="contained">Ciao</ButtonAM>
-        <ButtonAM variant="contained">Come</ButtonAM>
-        <ButtonAM variant="contained">Stay</ButtonAM>
-      </Box>
-      <Box
-        sx={{
-          height: "300px",
+          height: "100%",
+          paddingTop: 3,
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -100,9 +154,27 @@ function MainPage() {
           justifyContent: "space-evenly",
         }}
       >
-        <ButtonPM variant="contained">Ciao</ButtonPM>
-        <ButtonPM variant="contained">Come</ButtonPM>
-        <ButtonPM variant="contained">Stay</ButtonPM>
+        <ButtonPM variant="contained">
+          <Typography variant="h4">Integration</Typography>
+          <Box sx={[imageStyle, { height: "90%" }]}>
+            <MyImage src={Elements03} />
+            <ArrowForwardIcon sx={{ fontSize: 50 }} />
+          </Box>
+        </ButtonPM>
+        <ButtonPM variant="contained">
+          <Typography variant="h4">Steps</Typography>
+          <Box sx={[imageStyle, { height: "90%" }]}>
+            <MyImage src={Elements03} />
+            <ArrowForwardIcon sx={{ fontSize: 50 }} />
+          </Box>
+        </ButtonPM>
+        <ButtonPM variant="contained">
+          <Typography variant="h4">Features</Typography>
+          <Box sx={[imageStyle, { height: "90%" }]}>
+            <MyImage src={Elements03} />
+            <ArrowForwardIcon sx={{ fontSize: 50 }} />
+          </Box>
+        </ButtonPM>
       </Box>
     </Box>
   );
