@@ -16,6 +16,8 @@ const styleHeaderBtn = {
   alignItems: "center",
   display: "flex",
   justifyContent: "center",
+  paddingLeft: 1,
+  paddingRight: 1,
 };
 
 const drawerBtn = {

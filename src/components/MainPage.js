@@ -2,9 +2,14 @@ import React from "react";
 import { Grid, Box, styled, Typography, Button } from "@mui/material";
 import Image from "next/image";
 import Elements03 from "../images/Elements03.svg";
+import Email from "../images/Email.png";
+import Creative_process from "../images/Creative_process.png";
+import Online_shopping from "../images/Online_shopping.png";
+import Financial_insurance from "../images/Financial_insurance.png";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import TextButton from "./TextButton";
+import styles from "../../styles/Home.module.css";
 
 const RBox = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down("md")]: {
@@ -51,26 +56,7 @@ const ButtonAM = styled(Button)(({ theme }) => ({
   "&:hover": {
     borderColor: "transparent",
     backgroundColor: "white",
-    boxShadow: 4,
-    color: "#3076FF",
-  },
-}));
-
-const ButtonPM = styled(Button)(({ theme }) => ({
-  borderRadius: "25px",
-  backgroundColor: "white",
-  width: "65%",
-  height: "200px",
-  boxShadow: "none",
-  textTransform: "none",
-  fontSize: 25,
-  color: "black",
-  display: "flex",
-  flexDirection: "column",
-  "&:hover": {
-    borderColor: "transparent",
-    backgroundColor: "white",
-    boxShadow: 4,
+    boxShadow: "10px 32px 25px 2px rgba(20, 19, 19, 0.2)",
     color: "#3076FF",
   },
 }));
@@ -84,9 +70,35 @@ const imageStyle = {
   justifyContent: "space-between",
 };
 
-const MyImage = ({ src }) => {
+const EXButton = ({ title, onClick, type }) => {
   return (
-    <Image src={src} alt="Picture of the author" width="90%" height="90%" />
+    <button
+      onClick={onClick}
+      className={
+        type === "integration"
+          ? styles.INTButton
+          : type === "features"
+          ? styles.FTButton
+          : styles.STButton
+      }
+    >
+      <Typography sx={{ fontSize: 50, color: "white" }} variant="h4">
+        {title}
+      </Typography>
+      <ArrowForwardIcon sx={{ fontSize: 60, color: "white" }} />
+    </button>
+  );
+};
+
+const MyImage = ({ src, layout, height, width }) => {
+  return (
+    <Image
+      src={src}
+      layout={layout}
+      alt="Picture of the author"
+      width={!width ? "100%" : width}
+      height={!height ? "100%" : height}
+    />
   );
 };
 
@@ -106,24 +118,34 @@ function MainPage() {
           <ArrowForwardIosIcon sx={{ fontSize: 18 }} />
         </TextButton>
       </RBox>
-      <RGrid container spacing={1}>
-        <Grid item xs={12} md={3}>
-          <ButtonAM variant="contained">
+      <RGrid container>
+        <Grid item xs={12} md={2.6}>
+          <ButtonAM disableRipple variant="contained">
             <Typography variant="h5">Templates</Typography>
             <Box sx={imageStyle}>
-              <MyImage src={Elements03} />
+              <MyImage src={Online_shopping} />
               <ArrowForwardIosIcon />
             </Box>
           </ButtonAM>
         </Grid>
-        <Grid item sx={{ display: "flex" }}>
-          <MyImage src={Elements03} />
+        <Grid
+          item
+          md={1}
+          sx={{
+            height: "200px",
+            width: "160px",
+            alignItems: "center",
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <MyImage height="160px" width="160px" src={Creative_process} />
         </Grid>
         <Grid item xs={12} md={3}>
-          <ButtonAM variant="contained">
+          <ButtonAM disableRipple variant="contained">
             <Typography variant="h5">Pricing</Typography>
             <Box sx={imageStyle}>
-              <MyImage src={Elements03} />
+              <MyImage src={Financial_insurance} />
               <ArrowForwardIosIcon />
             </Box>
           </ButtonAM>
@@ -154,27 +176,9 @@ function MainPage() {
           justifyContent: "space-evenly",
         }}
       >
-        <ButtonPM variant="contained">
-          <Typography variant="h4">Integration</Typography>
-          <Box sx={[imageStyle, { height: "90%" }]}>
-            <MyImage src={Elements03} />
-            <ArrowForwardIcon sx={{ fontSize: 50 }} />
-          </Box>
-        </ButtonPM>
-        <ButtonPM variant="contained">
-          <Typography variant="h4">Steps</Typography>
-          <Box sx={[imageStyle, { height: "90%" }]}>
-            <MyImage src={Elements03} />
-            <ArrowForwardIcon sx={{ fontSize: 50 }} />
-          </Box>
-        </ButtonPM>
-        <ButtonPM variant="contained">
-          <Typography variant="h4">Features</Typography>
-          <Box sx={[imageStyle, { height: "90%" }]}>
-            <MyImage src={Elements03} />
-            <ArrowForwardIcon sx={{ fontSize: 50 }} />
-          </Box>
-        </ButtonPM>
+        <EXButton type="integration" title="Integration" />
+        <EXButton type="steps" title="Steps" />
+        <EXButton type="features" title="Features" />
       </Box>
     </Box>
   );

@@ -39,7 +39,7 @@ const theme = createTheme({
       ...headerCommonStyles,
       fontSize: "1.2em",
       [breakpoints.down("md")]: {
-        fontSize: "0.8em",
+        fontSize: "2em",
       },
     },
     h5: { ...headerCommonStyles, fontSize: "1.2em" },
