@@ -1,6 +1,8 @@
 import React from "react";
 import { Grid, Box, styled, Typography, Button } from "@mui/material";
 import TextButton from "./TextButton";
+import LogoAmplioNow from "../images/LogoAmplioNow.png";
+import Image from "next/image";
 
 const addBtnStyle = {
   fontSize: 14,
@@ -26,8 +28,8 @@ const RGrid = styled(Grid)(({ theme }) => ({
 function Footer() {
   return (
     <RGrid container spacing={1}>
-      <Grid item sx={{ paddingBottom: 5 }} md={2}>
-        <Typography>AmplioNow</Typography>
+      <Grid item sx={{ paddingBottom: 2 }} md={2}>
+        <Image width={130} height={30} layout="fixed" alt="logo" src={LogoAmplioNow}/>
       </Grid>
       <Grid item>
         <TextButton style={addBtnStyle}>Consultation</TextButton>

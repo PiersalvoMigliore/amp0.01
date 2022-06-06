@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Image from "next/image";
 import {
   Grid,
   Box,
@@ -8,6 +9,7 @@ import {
 } from "@mui/material";
 import TextButton from "./TextButton";
 import { createBreakpoints } from "@mui/system";
+import LogoAmplioNow from "../images/LogoAmplioNow.png";
 import MenuIcon from "@mui/icons-material/Menu";
 
 const breakpoints = createBreakpoints({});
@@ -42,10 +44,11 @@ function Header() {
             width: "100%",
             justifyContent: "space-between",
             padding: 5,
+            backgroundColor: '#ececf2'
           }}
         >
           <Grid item xs={3} md={3} sx={styleHeaderBtn}>
-            <Typography>AmplioNow</Typography>
+            <Image width={130} height={30} layout="fixed" alt="logo" src={LogoAmplioNow}/>
           </Grid>
           <Grid item sx={styleHeaderBtn}>
             <TextButton
@@ -85,7 +88,7 @@ function Header() {
       >
         <Grid container>
           <Grid item xs={3} md={3} sx={styleHeaderBtn}>
-            <Typography>AmplioNow</Typography>
+            <Image width={180} height={40} layout="fixed" alt="logo" src={LogoAmplioNow}/>
           </Grid>
           <Grid item xs={6} md={7} sx={styleHeaderBtn}>
             <Grid item sx={styleHeaderBtn}>
