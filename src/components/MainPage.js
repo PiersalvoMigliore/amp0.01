@@ -18,9 +18,11 @@ const RBox = styled(Box)(({ theme }) => ({
     flexDirection: "column",
     justifyContent: "center",
     padding: 20,
-    height: "400px",
+    height: "450px",
     marginLeft: 0,
+    width:'100%',
   },
+  width:'92%',
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
@@ -118,8 +120,8 @@ function MainPage() {
           <ArrowForwardIosIcon sx={{ fontSize: 18 }} />
         </TextButton>
       </RBox>
-      <RGrid container>
-        <Grid item xs={12} md={2.6}>
+      <RBox sx={{flexDirection:'row', justifyContent:'space-evenly', height:'200px'}} container>
+        <Grid sx={{padding:3}} item xs={12} md={4} lg={1.9}>
           <ButtonAM disableRipple variant="contained">
             <Typography variant="h5">Templates</Typography>
             <Box sx={imageStyle}>
@@ -141,7 +143,7 @@ function MainPage() {
         >
           <MyImage height="160px" width="160px" src={Creative_process} />
         </Grid>
-        <Grid item xs={12} md={3}>
+        <Grid sx={{padding:3}} item xs={12} md={3.5} lg={3.2}>
           <ButtonAM disableRipple variant="contained">
             <Typography variant="h5">Pricing</Typography>
             <Box sx={imageStyle}>
@@ -150,7 +152,7 @@ function MainPage() {
             </Box>
           </ButtonAM>
         </Grid>
-      </RGrid>
+      </RBox>
       <Box
         sx={{
           height: "100%",
@@ -158,6 +160,7 @@ function MainPage() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          marginTop: 15,
         }}
       >
         <Typography variant="h3" sx={{ width: "50%", textAlign: "center" }}>
