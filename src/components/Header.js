@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useRouter } from "next/router";
 import Image from "next/image";
 import {
   Grid,
@@ -29,6 +30,8 @@ const drawerBtn = {
 };
 
 function Header() {
+  const router = useRouter();
+
   const matches = useMediaQuery(breakpoints.down("md"));
 
   const [drawer, setDrawer] = useState(false);
@@ -44,11 +47,17 @@ function Header() {
             width: "100%",
             justifyContent: "space-between",
             padding: 5,
-            backgroundColor: '#ececf2'
+            backgroundColor: "#ececf2",
           }}
         >
           <Grid item xs={3} md={3} sx={styleHeaderBtn}>
-            <Image width={130} height={30} layout="fixed" alt="logo" src={LogoAmplioNow}/>
+            <Image
+              width={130}
+              height={30}
+              layout="fixed"
+              alt="logo"
+              src={LogoAmplioNow}
+            />
           </Grid>
           <Grid item sx={styleHeaderBtn}>
             <TextButton
@@ -65,7 +74,12 @@ function Header() {
           onClose={() => setDrawer(!drawer)}
           onOpen={() => setDrawer(!drawer)}
         >
-          <TextButton style={drawerBtn}>Templates</TextButton>
+          <TextButton
+            onClick={() => router.push("../../pages/templates")}
+            style={drawerBtn}
+          >
+            Templates
+          </TextButton>
           <TextButton style={drawerBtn}>Integration</TextButton>
           <TextButton style={drawerBtn}>Pricing</TextButton>
           <TextButton style={drawerBtn}>What We Do</TextButton>
@@ -88,11 +102,22 @@ function Header() {
       >
         <Grid container>
           <Grid item xs={3} md={3} sx={styleHeaderBtn}>
-            <Image width={180} height={40} layout="fixed" alt="logo" src={LogoAmplioNow}/>
+            <Image
+              width={180}
+              height={40}
+              layout="fixed"
+              alt="logo"
+              src={LogoAmplioNow}
+            />
           </Grid>
           <Grid item xs={6} md={7} sx={styleHeaderBtn}>
             <Grid item sx={styleHeaderBtn}>
-              <TextButton style={{ fontSize: 15 }}>Templates</TextButton>
+              <TextButton
+                onClick={() => router.push("/Templates")}
+                style={{ fontSize: 15 }}
+              >
+                Templates
+              </TextButton>
             </Grid>
             <Grid item sx={styleHeaderBtn}>
               <TextButton style={{ fontSize: 15 }}>Integration</TextButton>
