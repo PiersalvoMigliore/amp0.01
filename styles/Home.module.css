@@ -6,7 +6,7 @@
   background-position: 0px top;
 }
 
-.containerTemplates {
+.commonBackground {
   background: linear-gradient(
     0deg,
     rgba(180, 180, 180, 1) 0%,
@@ -21,7 +21,7 @@
 }
 
 @media screen and (max-width: 450px) {
-  .containerTemplates {
+  .commonBackground{
     width: min-content;
   }  
 }
