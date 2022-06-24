@@ -133,13 +133,23 @@ function Header() {
               </TextButton>
             </Grid>
             <Grid item sx={styleHeaderBtn}>
-              <TextButton style={{ fontSize: 15 }}>Pricing</TextButton>
+              <TextButton
+                onClick={() => router.push("/pricing")}
+                style={{ fontSize: 15 }}
+              >
+                Pricing
+              </TextButton>
             </Grid>
             <Grid item sx={styleHeaderBtn}>
               <TextButton style={{ fontSize: 15 }}>What We Do</TextButton>
             </Grid>
             <Grid item sx={styleHeaderBtn}>
-              <TextButton style={{ fontSize: 15 }}>Features</TextButton>
+              <TextButton
+                onClick={() => router.push("/features")}
+                style={{ fontSize: 15 }}
+              >
+                Features
+              </TextButton>
             </Grid>
             <Grid item sx={styleHeaderBtn}>
               <TextButton style={{ fontSize: 15 }}>Ask Us</TextButton>

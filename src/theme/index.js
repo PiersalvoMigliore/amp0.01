@@ -43,6 +43,23 @@ const theme = createTheme({
       },
     },
     h5: { ...headerCommonStyles, fontSize: "1.2em" },
+    h6: {
+      ...headerCommonStyles,
+      fontSize: "1.2em",
+      [breakpoints.down("md")]: {
+        fontSize: "1em",
+      },
+    },
+    h7: {
+      ...headerCommonStyles,
+      fontSize: "1.3em",
+      fontWeight: "normal",
+      color: "#606060",
+      [breakpoints.down("md")]: {
+        fontSize: "1em",
+        textAlign: "center",
+      },
+    },
   },
 });
 
