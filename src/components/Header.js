@@ -75,12 +75,17 @@ function Header() {
           onOpen={() => setDrawer(!drawer)}
         >
           <TextButton
-            onClick={() => router.push("../../pages/templates")}
+            onClick={() => router.push("/templates")}
             style={drawerBtn}
           >
             Templates
           </TextButton>
-          <TextButton style={drawerBtn}>Integration</TextButton>
+          <TextButton
+            onClick={() => router.push("/integration")}
+            style={drawerBtn}
+          >
+            Integration
+          </TextButton>
           <TextButton style={drawerBtn}>Pricing</TextButton>
           <TextButton style={drawerBtn}>What We Do</TextButton>
           <TextButton style={drawerBtn}>Features</TextButton>
@@ -113,23 +118,38 @@ function Header() {
           <Grid item xs={6} md={7} sx={styleHeaderBtn}>
             <Grid item sx={styleHeaderBtn}>
               <TextButton
-                onClick={() => router.push("/Templates")}
+                onClick={() => router.push("/templates")}
                 style={{ fontSize: 15 }}
               >
                 Templates
               </TextButton>
             </Grid>
             <Grid item sx={styleHeaderBtn}>
-              <TextButton style={{ fontSize: 15 }}>Integration</TextButton>
+              <TextButton
+                onClick={() => router.push("/integration")}
+                style={{ fontSize: 15 }}
+              >
+                Integration
+              </TextButton>
             </Grid>
             <Grid item sx={styleHeaderBtn}>
-              <TextButton style={{ fontSize: 15 }}>Pricing</TextButton>
+              <TextButton
+                onClick={() => router.push("/pricing")}
+                style={{ fontSize: 15 }}
+              >
+                Pricing
+              </TextButton>
             </Grid>
             <Grid item sx={styleHeaderBtn}>
               <TextButton style={{ fontSize: 15 }}>What We Do</TextButton>
             </Grid>
             <Grid item sx={styleHeaderBtn}>
-              <TextButton style={{ fontSize: 15 }}>Features</TextButton>
+              <TextButton
+                onClick={() => router.push("/features")}
+                style={{ fontSize: 15 }}
+              >
+                Features
+              </TextButton>
             </Grid>
             <Grid item sx={styleHeaderBtn}>
               <TextButton style={{ fontSize: 15 }}>Ask Us</TextButton>

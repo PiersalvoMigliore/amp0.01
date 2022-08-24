@@ -4,8 +4,6 @@ import Image from "next/image";
 import {
   Box,
   Typography,
-  Button,
-  styled,
   Modal,
   Fade,
   Backdrop,
@@ -18,7 +16,7 @@ import ButtonAM from "/src/components/ButtonAM.js";
 import CloseIcon from "@mui/icons-material/Close";
 import MyImage from "/src/components/MyImage.js";
 import styles from "/styles/Home.module.css";
-import LogoAmplioNow from "../src/images/LogoAmplioNow.png";
+import LogoHeader from "/src/components/LogoHeader.js";
 import RestaurantMain from "../src/images/RestaurantMain.png";
 import Restaurant1 from "../src/images/Restaurant1.png";
 import Restaurant2 from "../src/images/Restaurant2.png";
@@ -106,7 +104,7 @@ function Templates() {
   };
 
   return (
-    <div className={styles.containerTemplates}>
+    <div className={styles.commonBackground}>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -131,7 +129,7 @@ function Templates() {
                 display: "flex",
                 justifyContent: "space-evenly",
                 alignItems: "center",
-                marginTop: 15,
+                marginTop: 2,
                 backgroundColor: "#D8D8D8",
                 borderRadius: "25px",
                 flexDirection: matches && "column",
@@ -163,31 +161,7 @@ function Templates() {
           </Box>
         </Fade>
       </Modal>
-      <Box
-        sx={
-          !matches
-            ? {
-                marginLeft: "100px",
-                padding: 3,
-              }
-            : {
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                padding: 3,
-              }
-        }
-      >
-        <IconButton disableRipple onClick={() => router.push("/")}>
-          <Image
-            width={180}
-            height={40}
-            layout="fixed"
-            alt="logo"
-            src={LogoAmplioNow}
-          />
-        </IconButton>
-      </Box>
+      <LogoHeader />
       <Box
         sx={{
           display: "flex",
